@@ -27,34 +27,64 @@ body {
 #app {
   border: 1px solid black;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  width: 1000px;
+  align-items: flex-end;
+  width: 700px;
 }
 
-.options {
-  border: 1px solid black;
+.dropDownMenu {
   display: flex;
-  width: 60%;
-  height: 200px;
-  justify-content: flex-end;
-  align-items: center;
 }
-
-.options button {
-  margin-right: 5px;
-  border-radius: 5px;
-  padding: 5px;
-  background-color:  orangered;
+.dropDownMenu button {
+  background-color: orangered;
   color: white;
-  font-size: 1rem;
+  padding: 10px 15px;
+  border: none;
   cursor: pointer;
 }
 
-.hidden {
+.filterBtn:hover .options .filterOptions {
+  display: block;
+}
+
+.options {
+  display: flex;
+  position: relative;
+  justify-content: flex-end;
+  background-color: hsl(0, 0%, 95%);
+  min-width: 100px;
+  box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.8);
+}
+
+.filterOptions,
+.sortOptions {
+  padding: 5px;
+  position: absolute;
+  color: white;
+  background-color: black;
   display: none;
 }
 
-button:hover .hidden{
-display: block;
+.filterOptions {
+  top: 100%;
+  left: -60%;
+}
+
+.available,
+.highest {
+  border-bottom: 1px solid white;
+  margin-bottom: 5px;
+  padding: 3px;
+}
+.unavailable,
+.available,
+.highest,
+.lowest {
+  padding: 0px 3px 3px 3px;
+  cursor: pointer;
+}
+.sortOptions {
+  top: 100%;
+  left: 28%;
 }

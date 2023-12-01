@@ -8,23 +8,21 @@
   </head>
   <body>
     <div id="app">
-      <div class="options">
-        <button class="clear">Clear Filters</button>
-        <div class="filter">
-          <button>Filter by:</button>
-          <div class="hidden">
-            <div>Available</div>
-            <div>Unavailable</div>
-          </div>
-        </div>
-        <div class="sort">
-          <button>Sort by:</button>
-          <div class="hidden">
-            <div>Price: Highest to lowest</div>
-            <div>Price: Lowest to highest</div>
-          </div>
-        </div>
+      <div class="dropDownMenu">
+        <button>Clear Filters</button>
+        <button class="filterBtn">Filter by:</button>
+        <button class="sortBtn">Sort by:</button>
       </div>
+        <div class="options">
+          <div class="filterOptions">
+            <div class="available">Available</div>
+            <div class="unavailable">Unavailable</div>
+          </div>
+          <div class="sortOptions">
+            <div class="highest">Price: Highest to lowest</div>
+            <div class="lowest">Price: Lowest to highest</div>
+          </div>
+        </div>
     </div>
     <script type="module" src="/main.js"></script>
   </body>
