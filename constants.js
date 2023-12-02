@@ -98,7 +98,9 @@ export function data(){
   const clearBtn = document.querySelector('.clearBtn')
   const filterBtn = document.querySelector(".filterBtn");
   const sortBtn = document.querySelector(".sortBtn");
+  const filterOptions = document.querySelector('.filterOptions')
+  const sortOptions = document.querySelector('.sortOptions')
   return {
-    root, clearBtn, filterBtn, sortBtn
+    root, clearBtn, filterBtn, sortBtn, filterOptions, sortOptions
   }
 }

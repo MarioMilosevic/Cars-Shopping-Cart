@@ -46,9 +46,8 @@ body {
   padding: 10px 15px;
   border: none;
   cursor: pointer;
+  font-size: 0.9rem;
 }
-
-
 
 .options {
   display: flex;
@@ -60,15 +59,20 @@ body {
 .filterOptions,
 .sortOptions {
   padding: 5px;
-  /* position: absolute; */
+  position: absolute;
   color: white;
   font-size: 0.9rem;
   text-align: center;
   background-color: black;
-  /* display: none; */
+  /* visibility: hidden; */
+  opacity: 0;
+  transition:opacity 0.3s ease-in-out;
 }
 
-
+.filterOptions {
+  top: 0;
+  left: 77%;
+}
 
 .available,
 .decending {
@@ -84,12 +88,12 @@ body {
   cursor: pointer;
 }
 
-
 .car {
   margin: 0 auto;
   background-color: yellow;
-  width:90%;
+  width: 90%;
   border-bottom: 1px solid black;
   height: 50px;
   text-align: center;
+  /* display: none; */
 }
