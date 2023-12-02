@@ -22,15 +22,37 @@ export const displayOptions = (el) => {
     : (el.style.visibility = "visible");
 };
 
-export const filter = (arr, condition, root) => {
-  console.log(root);
+const removeDivs = (arr) => {
+  arr.forEach((el) => el.remove());
+};
+
+const getCars = (root) => {
   const currentDivsNodeList = root.querySelectorAll(".car");
   const currentDivs = [...currentDivsNodeList];
-  console.log(currentDivs);
-  currentDivs.forEach((div) => {
-    div.remove();
-  });
+  return currentDivs;
+  //   getCars(app);
+};
+
+export const filter = (arr, condition, root) => {
+  const currentDivsNodeList = root.querySelectorAll(".car");
+  const currentDivs = [...currentDivsNodeList];
+  removeDivs(currentDivs);
   const result = arr.filter((el) => el.available === condition);
   displayCars(root, result);
-  console.log(result);
+};
+
+export const sort = (arr, condition, root) => {
+  const currentDivsNodeList = root.querySelectorAll(".car");
+  console.log(currentDivsNodeList);
+  const currentDivs = [...currentDivsNodeList];
+  console.log(currentDivs);
+  removeDivs(currentDivs);
+  const result = arr.sort((a, b) => {
+    if (condition === "ascending") {
+        return b.price - a.price;
+    } else if(condition === 'decending'){
+        return a.price - b.price;
+    }
+  });
+  displayCars(root, result);
 };

@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 
 export const cars = [
   {
@@ -93,16 +93,26 @@ export const cars = [
   },
 ];
 
-export function data(){
-  const root = document.querySelector('#app')
-  const clearBtn = document.querySelector('.clearBtn')
+export function data() {
+  const root = document.querySelector("#app");
+  const clearBtn = document.querySelector(".clearBtn");
   const filterBtn = document.querySelector(".filterBtn");
   const sortBtn = document.querySelector(".sortBtn");
-  const filterOptions = document.querySelector('.filterOptions')
-  const sortOptions = document.querySelector('.sortOptions')
-  const available = document.querySelector('.available')
-  const unavailable = document.querySelector('.unavailable')
+  const filterOptions = document.querySelector(".filterOptions");
+  const sortOptions = document.querySelector(".sortOptions");
+  const available = document.querySelector(".available");
+  const unavailable = document.querySelector(".unavailable");
+const ascending = document.querySelector('.ascending')
+const decending = document.querySelector('.decending')  
   return {
-    root, clearBtn, filterBtn, sortBtn, filterOptions, sortOptions, unavailable,available
-  }
+    root,
+    clearBtn,
+    filterBtn,
+    sortBtn,
+    filterOptions,
+    sortOptions,
+    unavailable,
+    available,
+    ascending,decending
+  };
 }
