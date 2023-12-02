@@ -25,16 +25,20 @@ body {
 }
 
 #app {
+  margin-top: 100px;
   border: 1px solid black;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; */
   align-items: flex-end;
   width: 700px;
+  min-height: 300px;
 }
 
 .dropDownMenu {
   display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 .dropDownMenu button {
   background-color: orangered;
@@ -44,47 +48,48 @@ body {
   cursor: pointer;
 }
 
-.filterBtn:hover .options .filterOptions {
-  display: block;
-}
+
 
 .options {
   display: flex;
   position: relative;
   justify-content: flex-end;
-  background-color: hsl(0, 0%, 95%);
   min-width: 100px;
-  box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.8);
 }
 
 .filterOptions,
 .sortOptions {
   padding: 5px;
-  position: absolute;
+  /* position: absolute; */
   color: white;
+  font-size: 0.9rem;
+  text-align: center;
   background-color: black;
-  display: none;
+  /* display: none; */
 }
 
-.filterOptions {
-  top: 100%;
-  left: -60%;
-}
+
 
 .available,
-.highest {
+.decending {
   border-bottom: 1px solid white;
   margin-bottom: 5px;
   padding: 3px;
 }
 .unavailable,
 .available,
-.highest,
-.lowest {
+.decending,
+.ascending {
   padding: 0px 3px 3px 3px;
   cursor: pointer;
 }
-.sortOptions {
-  top: 100%;
-  left: 28%;
+
+
+.car {
+  margin: 0 auto;
+  background-color: yellow;
+  width:90%;
+  border-bottom: 1px solid black;
+  height: 50px;
+  text-align: center;
 }

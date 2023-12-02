@@ -1,4 +1,6 @@
-const cars = [
+'use strict'
+
+export const cars = [
   {
     id: 1,
     name: "Toyota Corolla",
@@ -90,3 +92,13 @@ const cars = [
     available: true,
   },
 ];
+
+export function data(){
+  const root = document.querySelector('#app')
+  const clearBtn = document.querySelector('.clearBtn')
+  const filterBtn = document.querySelector(".filterBtn");
+  const sortBtn = document.querySelector(".sortBtn");
+  return {
+    root, clearBtn, filterBtn, sortBtn
+  }
+}
