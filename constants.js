@@ -100,7 +100,9 @@ export function data(){
   const sortBtn = document.querySelector(".sortBtn");
   const filterOptions = document.querySelector('.filterOptions')
   const sortOptions = document.querySelector('.sortOptions')
+  const available = document.querySelector('.available')
+  const unavailable = document.querySelector('.unavailable')
   return {
-    root, clearBtn, filterBtn, sortBtn, filterOptions, sortOptions
+    root, clearBtn, filterBtn, sortBtn, filterOptions, sortOptions, unavailable,available
   }
 }
