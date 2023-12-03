@@ -1,18 +1,31 @@
 "use strict";
-
+import { data } from "./constants";
+const {divBtnHtml} = data()
 export const displayCars = (root, arr) => {
   arr.forEach((el) => {
-    const carDiv = document.createElement("div");
-    const carButton = document.createElement("button");
-    carDiv.classList.add("car");
-    carDiv.appendChild(carButton);
-    carButton.textContent = "X";
+    let fragment = document.createDocumentFragment()
+    const carDiv = document.createElement('div')
+    carDiv.classList.add('car')
+    const carBtn = document.createElement('button')
+    carBtn.textContent= 'X'
+    carBtn.classList.add('carBtn')
     carDiv.textContent = `Name: ${el.name}, ${el.brand}, ${
-      el.manufacturedYear
-    }, ${el.doors} doors, price:${el.price}$. Is available? ${
-      el.available === true ? "✅" : "❌"
+        el.manufacturedYear
+    }, ${el.doors} doors, price:${el.price}$. ${
+        el.available === true ? "✅" : "❌"
     }`;
-    root.appendChild(carDiv);
+    carDiv.appendChild(carBtn)
+    fragment.appendChild(carDiv)
+    root.appendChild(fragment)
+    // const carDiv = document.createElement("div").
+    // const carButton = document.createElement("button");
+    // carDiv.classList.add("car");
+    // carButton.classList.add('carBtn')
+    // carButton.textContent = "X";
+    // carDiv.appendChild(document.createElement('button'));
+    // console.log(carDiv);
+    // root.appendChild(carDiv)
+    // root.appendChild(carButton);
   });
 };
 
@@ -56,3 +69,7 @@ export const sort = (arr, condition, root) => {
   });
   displayCars(root, result);
 };
+
+export const clearOptions = () => {
+console.log('tek treba da se uradi');
+}

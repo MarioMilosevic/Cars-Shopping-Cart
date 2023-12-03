@@ -17,8 +17,13 @@ const {
   unavailable,
   ascending,
   decending,
+  divBtnHtml
 } = data();
-displayCars(app, cars);
+displayCars(root, cars);
+console.log(root);
+clearBtn.addEventListener('click', function(){
+    clearOptions()
+})
 
 filterBtn.addEventListener("click", function () {
   displayOptions(filterOptions);
@@ -29,17 +34,18 @@ sortBtn.addEventListener("click", function () {
 });
 
 available.addEventListener("click", function () {
-  filter(cars, true, app);
+  filter(cars, true, root);
 });
 
 unavailable.addEventListener("click", function () {
-  filter(cars, false, app);
+  filter(cars, false, root);
 });
 
 ascending.addEventListener("click", function () {
-  sort(cars, "ascending", app);
+  sort(cars, "ascending", root);
 });
 
 decending.addEventListener("click", function () {
-  sort(cars, "decending", app);
+  sort(cars, "decending", root);
 });
+

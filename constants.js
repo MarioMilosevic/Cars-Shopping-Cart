@@ -104,6 +104,9 @@ export function data() {
   const unavailable = document.querySelector(".unavailable");
 const ascending = document.querySelector('.ascending')
 const decending = document.querySelector('.decending')  
+const divBtnHtml = `<div class="car">
+  <button class="carBtn">X</button>
+</div>`
   return {
     root,
     clearBtn,
@@ -113,6 +116,7 @@ const decending = document.querySelector('.decending')
     sortOptions,
     unavailable,
     available,
-    ascending,decending
+    ascending,decending,
+    divBtnHtml
   };
 }

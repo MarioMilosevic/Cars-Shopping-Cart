@@ -7,27 +7,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #667db6; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #667db6,
-    #0082c8,
-    #0082c8,
-    #667db6
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #667db6,
-    #0082c8,
-    #0082c8,
-    #667db6
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: rgb(0, 0, 0);
 }
 
 #app {
   margin-top: 100px;
   align-items: flex-end;
   width: 700px;
+  position: relative;
   min-height: 300px;
 }
 
@@ -86,13 +73,33 @@ body {
 .car {
   display: flex;
   margin: 5px auto;
-  width: 90%;
+  position: relative;
+  width: 100%;
   border: 1px solid black;
   background-color: rgb(143, 132, 132);
   box-shadow: 5px 10px 18px #888;
   color: white;
   height: 50px;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   border-radius: 5px;
+}
+
+.car > button {
+  background-color: black;
+  margin-right: 50px;
+}
+
+.carBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: red;
+  position: absolute;
+  top: 50%;
+  right:-7%;
+  transform: translate(-50%,-50%);
+  cursor: pointer;
 }
