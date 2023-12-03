@@ -3,8 +3,10 @@ import { displayCars } from "./helpers";
 import { displayOptions } from "./helpers";
 import { filter } from "./helpers";
 import { sort } from "./helpers";
-import { data } from "./constants";
+import { deleteDiv } from "./helpers";
+import { focusHandler } from "./helpers";
 import { cars } from "./constants";
+import { data } from "./constants";
 
 const {
   app,
@@ -16,16 +18,17 @@ const {
   available,
   unavailable,
   ascending,
-  decending
+  decending,
+  optionsArray,
 } = data();
+
 displayCars(app, cars);
-const carBtn = document.querySelectorAll('.carBtn')
+const carBtn = document.querySelectorAll(".carBtn");
 clearBtn.addEventListener("click", function () {
   clearOptions();
 });
 
 filterBtn.addEventListener("click", function () {
-  console.log("radi");
   displayOptions(filterOptions);
 });
 
@@ -49,13 +52,10 @@ decending.addEventListener("click", function () {
   sort(cars, "decending", app);
 });
 
-carBtn.forEach(btn => {
-btn.addEventListener("click", function (e) {
-  console.log(e);
-  const target = e.target
-  target.parentElement.remove()
+carBtn.forEach((btn) => {
+  btn.addEventListener("click", deleteDiv);
 });
-})
-  
 
-console.log(carBtn);
+document.body.addEventListener("click", function (e) {
+  focusHandler(e, filterBtn, sortBtn, optionsArray);
+});

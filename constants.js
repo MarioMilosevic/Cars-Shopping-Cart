@@ -102,9 +102,10 @@ export function data() {
   const sortOptions = document.querySelector(".sortOptions");
   const available = document.querySelector(".available");
   const unavailable = document.querySelector(".unavailable");
-const ascending = document.querySelector('.ascending')
-const decending = document.querySelector('.decending')  
-const carBtn = document.querySelector('.carBtn')
+  const ascending = document.querySelector(".ascending");
+  const decending = document.querySelector(".decending");
+  const carBtn = document.querySelector(".carBtn");
+  const optionsArray = [filterOptions, available, unavailable, sortOptions, ascending, decending]
 
   return {
     app,
@@ -115,6 +116,9 @@ const carBtn = document.querySelector('.carBtn')
     sortOptions,
     unavailable,
     available,
-    ascending,decending,carBtn
+    ascending,
+    decending,
+    optionsArray,
+    carBtn,
   };
 }
