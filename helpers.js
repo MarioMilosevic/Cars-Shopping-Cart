@@ -1,6 +1,5 @@
 "use strict";
 import { data } from "./constants";
-const {divBtnHtml} = data()
 export const displayCars = (root, arr) => {
   arr.forEach((el) => {
     let fragment = document.createDocumentFragment()
@@ -30,6 +29,7 @@ export const displayCars = (root, arr) => {
 };
 
 export const displayOptions = (el) => {
+  console.log(el);
   el.style.visibility === "visible"
     ? (el.style.visibility = "hidden")
     : (el.style.visibility = "visible");

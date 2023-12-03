@@ -94,7 +94,7 @@ export const cars = [
 ];
 
 export function data() {
-  const root = document.querySelector("#app");
+  const app = document.querySelector("#app");
   const clearBtn = document.querySelector(".clearBtn");
   const filterBtn = document.querySelector(".filterBtn");
   const sortBtn = document.querySelector(".sortBtn");
@@ -104,11 +104,10 @@ export function data() {
   const unavailable = document.querySelector(".unavailable");
 const ascending = document.querySelector('.ascending')
 const decending = document.querySelector('.decending')  
-const divBtnHtml = `<div class="car">
-  <button class="carBtn">X</button>
-</div>`
+const carBtn = document.querySelector('.carBtn')
+
   return {
-    root,
+    app,
     clearBtn,
     filterBtn,
     sortBtn,
@@ -116,7 +115,6 @@ const divBtnHtml = `<div class="car">
     sortOptions,
     unavailable,
     available,
-    ascending,decending,
-    divBtnHtml
+    ascending,decending,carBtn
   };
 }

@@ -7,7 +7,7 @@ import { data } from "./constants";
 import { cars } from "./constants";
 
 const {
-  root,
+  app,
   filterBtn,
   clearBtn,
   sortBtn,
@@ -16,16 +16,16 @@ const {
   available,
   unavailable,
   ascending,
-  decending,
-  divBtnHtml
+  decending
 } = data();
-displayCars(root, cars);
-console.log(root);
-clearBtn.addEventListener('click', function(){
-    clearOptions()
-})
+displayCars(app, cars);
+const carBtn = document.querySelectorAll('.carBtn')
+clearBtn.addEventListener("click", function () {
+  clearOptions();
+});
 
 filterBtn.addEventListener("click", function () {
+  console.log("radi");
   displayOptions(filterOptions);
 });
 
@@ -34,18 +34,28 @@ sortBtn.addEventListener("click", function () {
 });
 
 available.addEventListener("click", function () {
-  filter(cars, true, root);
+  filter(cars, true, app);
 });
 
 unavailable.addEventListener("click", function () {
-  filter(cars, false, root);
+  filter(cars, false, app);
 });
 
 ascending.addEventListener("click", function () {
-  sort(cars, "ascending", root);
+  sort(cars, "ascending", app);
 });
 
 decending.addEventListener("click", function () {
-  sort(cars, "decending", root);
+  sort(cars, "decending", app);
 });
 
+carBtn.forEach(btn => {
+btn.addEventListener("click", function (e) {
+  console.log(e);
+  const target = e.target
+  target.parentElement.remove()
+});
+})
+  
+
+console.log(carBtn);
