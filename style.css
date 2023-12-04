@@ -25,7 +25,7 @@ body {
 }
 .dropDownMenu button {
   border-radius: 5px;
-  background-color: orangered;
+  background-color: grey;
   color: white;
   padding: 10px 15px;
   border: none;
