@@ -6,7 +6,6 @@ import { sort } from "./helpers";
 import { deleteDiv } from "./helpers";
 import { focusHandler } from "./helpers";
 import { clearFilters } from "./helpers";
-import { removeDivs } from "./helpers";
 import { cars } from "./constants";
 import { data } from "./constants";
 
@@ -30,16 +29,8 @@ const carDiv = document.querySelectorAll(".car");
 const carDivArr = [...carDiv];
 const carBtn = document.querySelectorAll(".carBtn");
 const carBtnArr = [...carBtn];
-// console.log(carBtnArr);
 
-// const emptyDivs = () => {
-//   carDivArr.forEach((element) => {
-//     element.innerHTML = "";
-//     console.log(element);
-//      console.log(element.innerHTML);
-//      console.log(element.innerText);
-//   });
-// };
+
 // Ocisti filter i sort (vrati prvobitne podatke)
 clearBtn.addEventListener("click", function () {
   clearFilters(app);

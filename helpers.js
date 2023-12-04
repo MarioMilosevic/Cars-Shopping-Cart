@@ -80,8 +80,9 @@ const getCurrentButtonsList = (root) => {
 export const filter = (arr, condition, root) => {
   // Uzimam trenutne divove
   const currentDivs = getCurrentDivsList(root);
+  const currentButtons = getCurrentButtons(root);
   // Brisem ih
-  removeDivs(currentDivs);
+  removeDivs(currentDivs, currentButtons);
   // Filterujem unijeti arr i vracam array sa objektima  koji se poklapaju sa uslovom
   const result = arr.filter((el) => el.available === condition);
   // result.forEach(car => )
@@ -93,10 +94,11 @@ export const filter = (arr, condition, root) => {
 export const sort = (arr, condition, root) => {
   // Uzimam trenutne divove jer se promjene
   const currentDivs = getCurrentDivsList(root);
+  const currentButtons = getCurrentButtons(root);
   // Brisem ih
-  removeDivs(currentDivs);
+  removeDivs(currentDivs, currentButtons);
   // Pravim array dje sortiram elemente u zavisnosti koji je uslov zadat
-  const result = arr.sort((a, b) => {
+  const result = arr.toSorted((a, b) => {
     if (condition === "ascending") {
       return b.price - a.price;
     } else if (condition === "decending") {
