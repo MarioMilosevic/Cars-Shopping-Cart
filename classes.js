@@ -31,46 +31,34 @@ export class CarManager {
     return this.carArray;
   }
 
-  availableCars(cars){
-    const availableCars = cars.filter(car => car.available === true)
-  return availableCars
+  availableCars(cars) {
+    const availableCars = cars.filter((car) => car.available === true);
+    return availableCars;
   }
 
-  unavailableCars(cars){
-    const unavailableCars = cars.filter(car => car.available === false)
-    return unavailableCars
+  unavailableCars(cars) {
+    const unavailableCars = cars.filter((car) => car.available === false);
+    return unavailableCars;
   }
 
-  setState(arr){
-    this.carArray = arr
+  setState(arr) {
+    this.carArray = arr;
   }
-  
+
   decending(arr) {
     const decendingArr = arr.toSorted((a, b) => a.price - b.price);
     console.log(decendingArr);
-    return decendingArr
+    return decendingArr;
   }
 
   ascending(arr) {
     const ascendingArr = arr.toSorted((a, b) => b.price - a.price);
     console.log(ascendingArr);
-    return ascendingArr
+    return ascendingArr;
   }
-  
-
-//   const result = arr.toSorted((a, b) => {
-//     if (condition === "ascending") {
-//       return b.price - a.price;
-//     } else if (condition === "decending") {
-//       return a.price - b.price;
-//     }
-//   }
-//   );
 
   arrayCurrentState = () => this.carArray;
 }
 export const carManager = new CarManager();
 
-export class UI {
-
-}
+export class UI {}
