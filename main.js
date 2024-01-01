@@ -27,18 +27,16 @@ data1.forEach((el) => {
   carManager.add(car);
 });
 
-// console.log(carManager);
 
 displayCars(carDivs, carManager.arrayCurrentState());
 
-// const carDivs = document.querySelectorAll('.carDiv')
 
-  
 
-// Uzimam auta i dugmad jer ih pravim programatski nakon pozivanja funkcije Displaycars()
-// const carDiv = document.querySelectorAll(".car");
-// const carDivArr = [...carDiv];
-// // const carBtnArr = [...carBtn];
+clearBtn.addEventListener("click", function () {
+  carManager.setState(data1)
+  carDivs.innerHTML = ''
+  displayCars(carDivs, carManager.arrayCurrentState());
+});
 
 filterBtn.addEventListener("change", function () {
   let selectedOption = this.value;
@@ -57,29 +55,25 @@ filterBtn.addEventListener("change", function () {
   }
 });
 
-// Ocisti filter i sort (vrati prvobitne podatke)
-clearBtn.addEventListener("click", function () {
-  carManager.setState(data1)
+
+sortBtn.addEventListener("change", function () {
+  let selectedOption = this.value;
+  const currentState = carManager.arrayCurrentState()
+  console.log('pravo stanje arraya',currentState);
+  if (selectedOption === "decending") {
+ const decending = carManager.decending(currentState)
   carDivs.innerHTML = ''
-  displayCars(carDivs, carManager.arrayCurrentState());
+  displayCars(carDivs, carManager.decending(decending))
+} else if (selectedOption === "ascending") {
+  const ascending = carManager.ascending(currentState)
+  carDivs.innerHTML = ''
+  displayCars(carDivs, carManager.ascending(ascending))
+  console.log('ascending');
+  }
 });
-// Prikazi opcije filtera
-// filterBtn.addEventListener("click", function () {
-//   displayOptions(filterOptions);
-// });
-// // Prikazi opcije sorta
-// sortBtn.addEventListener("click", function () {
-//   displayOptions(sortOptions);
-// });
-// Dostupni
-available.addEventListener("click", function () {
-  console.log("available");
-  filter(cars, true, app);
-});
-// Nedostupni
-unavailable.addEventListener("click", function () {
-  filter(cars, false, app);
-});
+
+
+
 // Sortiranje rastuce
 ascending.addEventListener("click", function () {
   sort(cars, "ascending", app);

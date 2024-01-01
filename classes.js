@@ -44,6 +44,28 @@ export class CarManager {
   setState(arr){
     this.carArray = arr
   }
+  
+  decending(arr) {
+    const decendingArr = arr.toSorted((a, b) => a.price - b.price);
+    console.log(decendingArr);
+    return decendingArr
+  }
+
+  ascending(arr) {
+    const ascendingArr = arr.toSorted((a, b) => b.price - a.price);
+    console.log(ascendingArr);
+    return ascendingArr
+  }
+  
+
+//   const result = arr.toSorted((a, b) => {
+//     if (condition === "ascending") {
+//       return b.price - a.price;
+//     } else if (condition === "decending") {
+//       return a.price - b.price;
+//     }
+//   }
+//   );
 
   arrayCurrentState = () => this.carArray;
 }
