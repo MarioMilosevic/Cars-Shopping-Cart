@@ -1,7 +1,14 @@
 "use strict";
-import { displayCars, filter, sort, deleteDiv, displayOptions, clearFilters } from "./helpers";
+import {
+  displayCars,
+  filter,
+  sort,
+  deleteDiv,
+  displayOptions,
+  clearFilters,
+} from "./helpers";
 import { cars, data } from "./constants";
-import { Div, DivManager, UI } from "./classes";
+import { Car, carManager, UI } from "./classes";
 const {
   app,
   filterBtn,
@@ -12,15 +19,24 @@ const {
   decending,
 } = data();
 
-const data1 = [...cars]
+const data1 = [...cars];
 
+data1.forEach((el) => {
+  const car = new Car(el);
+  carManager.add(car);
+});
 
-displayCars(app, data1);
+console.log(carManager);
+
+window.onload = function () {
+  displayCars(app, carManager.arrayCurrentState());
+  
+};
+
 // Uzimam auta i dugmad jer ih pravim programatski nakon pozivanja funkcije Displaycars()
 const carDiv = document.querySelectorAll(".car");
 const carDivArr = [...carDiv];
-const carBtn = document.querySelectorAll(".carBtn");
-const carBtnArr = [...carBtn];
+// const carBtnArr = [...carBtn];
 
 filterBtn.addEventListener("change", function () {
   let selectedOption = this.value;
@@ -62,9 +78,9 @@ decending.addEventListener("click", function () {
   sort(cars, "decending", app);
 });
 
-carBtn.forEach((btn) => {
-  btn.addEventListener("click", deleteDiv);
-});
+// carBtn.forEach((btn) => {
+//   btn.addEventListener("click", deleteDiv);
+// });
 
 // Na klik van filter ili sort, oni postaju nevidljivi
 // document.body.addEventListener("click", function (e) {

@@ -1,27 +1,42 @@
 'use strict'
 
-export class Div {
-constructor(text){
-this.text = text
+export class Car {
+constructor(info){
+    this.info = info
+this.id = info.id
+this.name = info.name
+this.brand = info.brand
+this.manufacturedYear = info.manufacturedYear
+this.doors = info.doors
+this.price = info.price
+this.available = info.available
 }
+returnCar = () => info
 }
 
-export class DivManager{
+export class CarManager{
 constructor(){
-this.divArray = []
+this.carArray = []
 }
 
-add(div){
-this.divArray.push(div)
+add(car){
+this.carArray.push(car)
 }
 
-remove(div) {
-    const filteredArr = this.divArray.filter(el => el !== div)
-    this.divArray = filteredArr
-    return this.divArray
-  }
+remove(carId) {
+    const carIdNumber = Number(carId)
+    const filteredArr = this.carArray.filter(el => el.id !== carIdNumber)
+    console.log(filteredArr);
+    this.carArray = filteredArr
+    return this.carArray
+// console.log(carId);
+   }
+
+arrayCurrentState = () => this.carArray
+
 
 }
+export const carManager = new CarManager();
 
 export class UI {
 

@@ -1,4 +1,5 @@
 "use strict";
+import { carManager } from "./classes";
 
 export const displayCars = (root, arr) => {
   arr.forEach((el) => {
@@ -11,11 +12,23 @@ export const displayCars = (root, arr) => {
     <div class ="carAvailability">
     ${el.available === true ? "✅" : "❌"}
     </div>
-   <button class="carBtn">X</button>
+   <button data-carId=${el.id} class="carBtn">X</button>
    </div>`;
     root.appendChild(cars);
   });
+
+  const carBtn = document.querySelectorAll(".carBtn");
+  carBtn.forEach((btn) => {
+    // console.log(btn);
+    btn.addEventListener("click", function() {
+      // carManager.remove(btn.getAttribute('dat'));
+      carManager.remove(btn.dataset.carid);
+      console.log(carManager.arrayCurrentState());
+    });
+  });
 };
+
+const removeCar = () => {};
 
 const getCurrentButtons = () => {
   // const currentButtons =

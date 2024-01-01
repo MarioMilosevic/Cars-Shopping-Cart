@@ -37,15 +37,14 @@ body {
 #filterBtn,
 #sortBtn,
 #clearBtn {
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: var(--color-accent-shade1);
   color: white;
   margin-left: 3px;
+  padding: 10px;
   text-align: center;
-  padding: 10px 15px;
-  border: none;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 16px;
 }
 
 .options {
