@@ -17,6 +17,7 @@ const {
   unavailable,
   ascending,
   decending,
+  carDivs
 } = data();
 
 const data1 = [...cars];
@@ -26,31 +27,41 @@ data1.forEach((el) => {
   carManager.add(car);
 });
 
-console.log(carManager);
+// console.log(carManager);
 
-window.onload = function () {
-  displayCars(app, carManager.arrayCurrentState());
+displayCars(carDivs, carManager.arrayCurrentState());
+
+// const carDivs = document.querySelectorAll('.carDiv')
+
   
-};
 
 // Uzimam auta i dugmad jer ih pravim programatski nakon pozivanja funkcije Displaycars()
-const carDiv = document.querySelectorAll(".car");
-const carDivArr = [...carDiv];
-// const carBtnArr = [...carBtn];
+// const carDiv = document.querySelectorAll(".car");
+// const carDivArr = [...carDiv];
+// // const carBtnArr = [...carBtn];
 
 filterBtn.addEventListener("change", function () {
   let selectedOption = this.value;
+  const currentState = carManager.arrayCurrentState()
+  console.log('pravo stanje arraya',currentState);
   if (selectedOption === "available") {
-    console.log("available");
+    carManager.availableCars(currentState)
+    carDivs.innerHTML = ''
+    displayCars(carDivs, carManager.availableCars(currentState))
+    console.log(currentState);
   } else if (selectedOption === "unavailable") {
-    console.log("unavailable");
+    carManager.unavailableCars(carManager.arrayCurrentState(currentState))
+    carDivs.innerHTML = ''
+    displayCars(carDivs, carManager.unavailableCars(currentState))
+    console.log(currentState);
   }
 });
 
 // Ocisti filter i sort (vrati prvobitne podatke)
 clearBtn.addEventListener("click", function () {
-  clearFilters(app);
-  displayCars(app, cars);
+  carManager.setState(data1)
+  carDivs.innerHTML = ''
+  displayCars(carDivs, carManager.arrayCurrentState());
 });
 // Prikazi opcije filtera
 // filterBtn.addEventListener("click", function () {

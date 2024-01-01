@@ -95,6 +95,7 @@ export const cars = [
 
 export function data() {
   const app = document.querySelector("#app");
+  const carDivs = document.querySelector('.carDivs')
   const clearBtn = document.querySelector("#clearBtn");
   const filterBtn = document.querySelector("#filterBtn");
   const sortBtn = document.querySelector("#sortBtn");
@@ -119,6 +120,6 @@ export function data() {
     ascending,
     decending,
     optionsArray,
-    carBtn,
+    carBtn,carDivs
   };
 }
