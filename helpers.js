@@ -1,28 +1,21 @@
 "use strict";
-// Pravi divove i dugmad unutar njih i ubacuje ih u glavni root div
 export const displayCars = (root, arr) => {
   arr.forEach((el) => {
-    // Pravim fragment
-    let fragment = document.createDocumentFragment();
-    // Pravim div za informacije auta i dodajem im klasu
+
     const carDiv = document.createElement("div");
-    carDiv.classList.add("car");
-    // Pravim buttonem za auta i dajem im klasu
+    carDiv.classList.add("carDiv");
+    const carText = document.createElement('p')
+    carText.classList.add('carText')
     const carBtn = document.createElement("button");
     carBtn.textContent = "X";
     carBtn.classList.add("carBtn");
-    // U carDiv ubacujem text kontent
-    carDiv.textContent = `Name: ${el.name}, ${el.brand}, ${
+    carText.textContent = `Name: ${el.name}, ${el.brand}, ${
       el.manufacturedYear
     }, ${el.doors} doors, price:${el.price}$. ${
       el.available === true ? "✅" : "❌"
     }`;
-    // Svakom carDivu dajem dijete carBtn
-    carDiv.appendChild(carBtn);
-    //Svakom fragmentu dajem dijete carDiv
-    fragment.appendChild(carDiv);
-    // Glavnom divu dajem djecu fragmente koji sadrze carDiv i carBtn
-    root.appendChild(fragment);
+    carDiv.append(carText,carBtn);
+    root.appendChild(carDiv);
   });
 };
 
@@ -116,12 +109,12 @@ export const deleteDiv = (e) => {
   target.parentElement.remove();
 };
 // Funkcija koja sklanja fokus sa filter ili sort dugmeta kada kliknem van njih
-export const focusHandler = (event, a, b, arr) => {
-  if (event.target === a || event.target === b) {
-    return;
-  } else {
-    arr.forEach((element) => {
-      element.style.visibility = "hidden";
-    });
-  }
-};
+// export const focusHandler = (event, a, b, arr) => {
+//   if (event.target === a || event.target === b) {
+//     return;
+//   } else {
+//     arr.forEach((element) => {
+//       element.style.visibility = "hidden";
+//     });
+//   }
+// };

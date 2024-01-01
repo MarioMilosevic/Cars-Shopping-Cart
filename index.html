@@ -12,16 +12,21 @@
   <body>
     <div id="app">
       <div class="dropDownMenu">
-        <button class="clearBtn">Clear Filters</button>
+        <button id="clearBtn">Clear Filters</button>
         <select name="Filter" id="filterBtn">
-          <option value="" >Please choose filter option</option>
-          <option value="available">Available</option>
-          <option value="unavailable">Unavailable</option>
+          <option value="" >Filter by:</option>
+          <option class="available" value="available">Available</option>
+          <option class="unavailable" value="unavailable">Unavailable</option>
         </select>
-        <button class="filterBtn">Filter by:</button>
-        <button class="sortBtn">Sort by:</button>
+        <select name="Filter" id="sortBtn">
+          <option value="" >Sort by:</option>
+          <option class="decending" value="decending">Decending</option>
+          <option class="ascending" value="ascending">Ascending</option>
+        </select>
+        <!-- <button class="filterBtn">Filter by:</button>
+        <button class="sortBtn">Sort by:</button> -->
       </div>
-        <div class="options">
+        <!-- <div class="options">
           <div class="filterOptions">
             <div class="available">Available</div>
             <div class="unavailable">Unavailable</div>
@@ -30,7 +35,7 @@
             <div class="decending">Decending</div>
             <div class="ascending">Ascending</div>
           </div>
-        </div>
+        </div> -->
     </div>
     <script type="module" src="/main.js"></script>
   </body>

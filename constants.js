@@ -95,9 +95,9 @@ export const cars = [
 
 export function data() {
   const app = document.querySelector("#app");
-  const clearBtn = document.querySelector(".clearBtn");
-  const filterBtn = document.querySelector(".filterBtn");
-  const sortBtn = document.querySelector(".sortBtn");
+  const clearBtn = document.querySelector("#clearBtn");
+  const filterBtn = document.querySelector("#filterBtn");
+  const sortBtn = document.querySelector("#sortBtn");
   const filterOptions = document.querySelector(".filterOptions");
   const sortOptions = document.querySelector(".sortOptions");
   const available = document.querySelector(".available");

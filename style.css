@@ -2,16 +2,16 @@
   --color-gray-light: #f9fafb;
   --color-accent-primary: #6b7280;
   --color-accent-shade1: #4b5563;
+  --color-black-light: #020617;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
-
 
 body {
   display: flex;
@@ -33,20 +33,15 @@ body {
   justify-content: flex-end;
   align-items: center;
 }
-.dropDownMenu button {
-  border-radius: 5px;
-  background-color: var(--color-accent-shade1);
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
 
-#filterBtn {
+#filterBtn,
+#sortBtn,
+#clearBtn {
   border-radius: 5px;
   background-color: var(--color-accent-shade1);
   color: white;
+  margin-left: 3px;
+  text-align: center;
   padding: 10px 15px;
   border: none;
   cursor: pointer;
@@ -91,38 +86,26 @@ body {
   cursor: pointer;
 }
 
-.car {
+.carDiv {
   display: flex;
-  margin: 10px auto;
-  position: relative;
+  justify-content: space-between;
+  padding: 0 30px;
+  align-items: center;
+  margin-top: 10px;
   width: 100%;
-  border: 1px solid black;
   background-color: var(--color-accent-primary);
   color: white;
   height: 50px;
-  justify-content: space-around;
-  align-items: center;
   border-radius: 5px;
 }
 
-.car > button {
-  background-color: black;
-  margin-right: 50px;
-}
-
 .carBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: var(--color-black-light);
   border-radius: 10px;
   width: 45px;
   font-size: 20px;
-  padding:1px 2px;
+  padding: 1px 2px;
   height: 35px;
   color: #fff;
-  position: absolute;
-  top: 50%;
-  right:-7%;
-  transform: translate(-50%,-50%);
   cursor: pointer;
 }
