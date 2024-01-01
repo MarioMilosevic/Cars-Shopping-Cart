@@ -1,27 +1,17 @@
 "use strict";
-import { displayCars } from "./helpers";
-import { displayOptions } from "./helpers";
-import { filter } from "./helpers";
-import { sort } from "./helpers";
-import { deleteDiv } from "./helpers";
-// import { focusHandler } from "./helpers";
-import { clearFilters } from "./helpers";
-import { cars } from "./constants";
-import { data } from "./constants";
-
+import { displayCars, filter, sort, deleteDiv, displayOptions, clearFilters } from "./helpers";
+import { cars, data } from "./constants";
+import { Div, DivManager, UI } from "./classes";
 const {
   app,
   filterBtn,
   clearBtn,
-  sortBtn,
-  filterOptions,
-  sortOptions,
   available,
   unavailable,
   ascending,
   decending,
-  optionsArray,
 } = data();
+
 const data1 = [...cars]
 
 

@@ -55,48 +55,23 @@ body {
   min-width: 100px;
 }
 
-.filterOptions,
-.sortOptions {
-  padding: 5px;
-  position: absolute;
-  color: white;
-  font-size: 0.9rem;
-  text-align: center;
-  background-color: black;
-  visibility: hidden;
-  z-index: 1;
-}
-
-.filterOptions {
-  top: 0;
-  left: 77%;
-}
-
-.available,
-.decending {
-  border-bottom: 1px solid white;
-  margin-bottom: 5px;
-  padding: 3px;
-}
-.unavailable,
-.available,
-.decending,
-.ascending {
-  padding: 0px 3px 3px 3px;
-  cursor: pointer;
-}
-
 .carDiv {
   display: flex;
   justify-content: space-between;
-  padding: 0 30px;
+  padding: 10px 30px;
   align-items: center;
+  position: relative;
   margin-top: 10px;
   width: 100%;
   background-color: var(--color-accent-primary);
   color: white;
-  height: 50px;
   border-radius: 5px;
+}
+
+.carAvailability {
+  position: absolute;
+  font-size: 20px;
+  right: 17%;
 }
 
 .carBtn {

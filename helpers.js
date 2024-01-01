@@ -1,4 +1,5 @@
 "use strict";
+
 export const displayCars = (root, arr) => {
   arr.forEach((el) => {
     const cars = document.createElement("div");
@@ -6,7 +7,10 @@ export const displayCars = (root, arr) => {
     cars.innerHTML = `<div class="carDiv">
    <p class="carText">Name: ${el.name}, ${el.brand}, ${el.manufacturedYear}, ${
       el.doors
-    }, price: ${el.price}$. ${el.available === true ? "✅" : "❌"}</p>
+    }, price: ${el.price}$.</p> 
+    <div class ="carAvailability">
+    ${el.available === true ? "✅" : "❌"}
+    </div>
    <button class="carBtn">X</button>
    </div>`;
     root.appendChild(cars);
