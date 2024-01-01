@@ -27,11 +27,13 @@ filterBtn.addEventListener("change", function () {
     carManager.availableCars(currentState);
     carDivs.innerHTML = "";
     displayCars(carDivs, carManager.availableCars(currentState));
-    console.log(currentState);
   } else if (selectedOption === "unavailable") {
     carManager.unavailableCars(carManager.arrayCurrentState(currentState));
     carDivs.innerHTML = "";
     displayCars(carDivs, carManager.unavailableCars(currentState));
+  } else {
+    carDivs.innerHTML = "";
+    displayCars(carDivs, currentState);
   }
 });
 
@@ -47,5 +49,8 @@ sortBtn.addEventListener("change", function () {
     const ascending = carManager.ascending(currentState);
     carDivs.innerHTML = "";
     displayCars(carDivs, carManager.ascending(ascending));
+  } else {
+    carDivs.innerHTML = "";
+    displayCars(carDivs, currentState);
   }
 });
