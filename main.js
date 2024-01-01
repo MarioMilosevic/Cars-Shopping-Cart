@@ -22,8 +22,10 @@ const {
   decending,
   optionsArray,
 } = data();
+const data1 = [...cars]
 
-displayCars(app, cars);
+
+displayCars(app, data1);
 // Uzimam auta i dugmad jer ih pravim programatski nakon pozivanja funkcije Displaycars()
 const carDiv = document.querySelectorAll(".car");
 const carDivArr = [...carDiv];

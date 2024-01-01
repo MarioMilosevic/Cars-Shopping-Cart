@@ -1,21 +1,15 @@
 "use strict";
 export const displayCars = (root, arr) => {
   arr.forEach((el) => {
-
-    const carDiv = document.createElement("div");
-    carDiv.classList.add("carDiv");
-    const carText = document.createElement('p')
-    carText.classList.add('carText')
-    const carBtn = document.createElement("button");
-    carBtn.textContent = "X";
-    carBtn.classList.add("carBtn");
-    carText.textContent = `Name: ${el.name}, ${el.brand}, ${
-      el.manufacturedYear
-    }, ${el.doors} doors, price:${el.price}$. ${
-      el.available === true ? "✅" : "❌"
-    }`;
-    carDiv.append(carText,carBtn);
-    root.appendChild(carDiv);
+    const cars = document.createElement("div");
+    cars.innerHTML = "";
+    cars.innerHTML = `<div class="carDiv">
+   <p class="carText">Name: ${el.name}, ${el.brand}, ${el.manufacturedYear}, ${
+      el.doors
+    }, price: ${el.price}$. ${el.available === true ? "✅" : "❌"}</p>
+   <button class="carBtn">X</button>
+   </div>`;
+    root.appendChild(cars);
   });
 };
 
