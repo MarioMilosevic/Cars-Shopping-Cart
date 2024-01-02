@@ -13,8 +13,7 @@ data1.forEach((el) => {
 
 displayCars(carDivs, carManager.arrayCurrentState());
 
-const currentStateCopy = carManager.makeFakeArr()
-console.log(currentStateCopy);
+let currentStateCopy = [...carManager.arrayCurrentState()]
 
 clearBtn.addEventListener("click", function () {
   carManager.setState(data1);
@@ -26,13 +25,20 @@ filterBtn.addEventListener("change", function () {
   sortBtn.value = "";
   let selectedOption = this.value;
   if (selectedOption === "available") {
+    currentStateCopy = carManager.arrayCurrentState()
     carManager.availableCars(currentStateCopy);
     carDivs.innerHTML = "";
+    currentStateCopy = carManager.availableCars(currentStateCopy)
     displayCars(carDivs, carManager.availableCars(currentStateCopy));
+    console.log(currentStateCopy);
+
   } else if (selectedOption === "unavailable") {
+    currentStateCopy = carManager.arrayCurrentState()
     carManager.unavailableCars(carManager.arrayCurrentState(currentStateCopy));
+    currentStateCopy = carManager.unavailableCars(currentStateCopy)
     carDivs.innerHTML = "";
     displayCars(carDivs, carManager.unavailableCars(currentStateCopy));
+    console.log(currentStateCopy);
   } else {
     carDivs.innerHTML = "";
     displayCars(carDivs, carManager.arrayCurrentState());
@@ -40,17 +46,19 @@ filterBtn.addEventListener("change", function () {
 });
 
 sortBtn.addEventListener("change", function () {
+
   filterBtn.value = "";
   let selectedOption = this.value;
-  const currentStateCopy = carManager.arrayCurrentState();
+  // const currentStateCopy = carManager.arrayCurrentState();
   if (selectedOption === "decending") {
-    const decending = carManager.decending(currentStateCopy);
+
+    currentStateCopy = carManager.decending(currentStateCopy);
     carDivs.innerHTML = "";
-    displayCars(carDivs, carManager.decending(decending));
+    displayCars(carDivs, carManager.decending(currentStateCopy));
   } else if (selectedOption === "ascending") {
-    const ascending = carManager.ascending(currentStateCopy);
+    currentStateCopy = carManager.ascending(currentStateCopy);
     carDivs.innerHTML = "";
-    displayCars(carDivs, carManager.ascending(ascending));
+    displayCars(carDivs, carManager.ascending(currentStateCopy));
   } else {
     carDivs.innerHTML = "";
     displayCars(carDivs, currentStateCopy);
