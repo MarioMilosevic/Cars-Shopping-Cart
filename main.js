@@ -1,5 +1,5 @@
 "use strict";
-import { displayCars, filter } from "./helpers";
+import { displayCars } from "./helpers";
 import { cars, data } from "./constants";
 import { Car, carManager, UI } from "./classes";
 const { filterBtn, clearBtn, carDivs } = data();
@@ -13,6 +13,9 @@ data1.forEach((el) => {
 
 displayCars(carDivs, carManager.arrayCurrentState());
 
+const currentStateCopy = carManager.makeFakeArr()
+console.log(currentStateCopy);
+
 clearBtn.addEventListener("click", function () {
   carManager.setState(data1);
   carDivs.innerHTML = "";
@@ -22,35 +25,34 @@ clearBtn.addEventListener("click", function () {
 filterBtn.addEventListener("change", function () {
   sortBtn.value = "";
   let selectedOption = this.value;
-  const currentState = carManager.arrayCurrentState();
   if (selectedOption === "available") {
-    carManager.availableCars(currentState);
+    carManager.availableCars(currentStateCopy);
     carDivs.innerHTML = "";
-    displayCars(carDivs, carManager.availableCars(currentState));
+    displayCars(carDivs, carManager.availableCars(currentStateCopy));
   } else if (selectedOption === "unavailable") {
-    carManager.unavailableCars(carManager.arrayCurrentState(currentState));
+    carManager.unavailableCars(carManager.arrayCurrentState(currentStateCopy));
     carDivs.innerHTML = "";
-    displayCars(carDivs, carManager.unavailableCars(currentState));
+    displayCars(carDivs, carManager.unavailableCars(currentStateCopy));
   } else {
     carDivs.innerHTML = "";
-    displayCars(carDivs, currentState);
+    displayCars(carDivs, carManager.arrayCurrentState());
   }
 });
 
 sortBtn.addEventListener("change", function () {
   filterBtn.value = "";
   let selectedOption = this.value;
-  const currentState = carManager.arrayCurrentState();
+  const currentStateCopy = carManager.arrayCurrentState();
   if (selectedOption === "decending") {
-    const decending = carManager.decending(currentState);
+    const decending = carManager.decending(currentStateCopy);
     carDivs.innerHTML = "";
     displayCars(carDivs, carManager.decending(decending));
   } else if (selectedOption === "ascending") {
-    const ascending = carManager.ascending(currentState);
+    const ascending = carManager.ascending(currentStateCopy);
     carDivs.innerHTML = "";
     displayCars(carDivs, carManager.ascending(ascending));
   } else {
     carDivs.innerHTML = "";
-    displayCars(carDivs, currentState);
+    displayCars(carDivs, currentStateCopy);
   }
 });

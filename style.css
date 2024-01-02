@@ -28,6 +28,23 @@ body {
   min-height: 300px;
 }
 
+#app h1 {
+  position: absolute;
+  top: -6%;
+  left: -12%;
+  font-size: 46px;
+  word-spacing: 145px;
+}
+#app span {
+  font-size: 35px;
+  position: absolute;
+  top: -51%;
+  left: 29%;
+  background-color: var(--color-accent-primary);
+  border-radius: 10px;
+  padding:5px;
+}
+
 .dropDownMenu {
   display: flex;
   justify-content: flex-end;
