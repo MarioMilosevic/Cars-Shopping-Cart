@@ -17,55 +17,43 @@ export class Car {
 export class CarManager {
   constructor() {
     this.carArray = [...cars];
-    this.filteredArr = []
-    this.currentFilter = ''
+    this.customArr = [];
+    this.currentFilter = "";
   }
-
 
   add(car) {
     this.carArray.push(car);
   }
 
   filter(value) {
-    console.log(this.carArray);
-    let filteredArr = [...this.carArray]
-    filteredArr = filteredArr.filter((el) => el.available === value);
-    console.log(filteredArr);
-    return filteredArr
+    this.customArr = [...this.carArray];
+    this.customArr = this.customArr.filter((el) => el.available === value);
+    return this.customArr;
   }
 
-  // availableCars(cars) {
-  //   const availableCars = cars.filter((car) => car.available === true);
-  //   return availableCars;
-  // }
+  setCustomArr() {
+    this.customArr.length === 0
+      ? this.customArr.push(...this.carArray)
+      : this.customArr;
+  }
 
-  // unavailableCars(cars) {
-  //   const unavailableCars = cars.filter((car) => car.available === false);
-  //   return unavailableCars;
-  // }
+  sort(value) {
+    this.setCustomArr();
+    this.customArr = this.customArr.sort((a, b) =>
+      value === "decending" ? b.price - a.price : a.price - b.price
+    );
+    return this.customArr;
+  }
+
+  remove(carId) {
+    this.setCustomArr();
+    const carIdNumber = Number(carId);
+    this.customArr = this.customArr.filter((el) => el.id !== carIdNumber);
+  }
 
   setState(arr) {
     this.carArray = arr;
   }
-
-  sort(value){
-    let sortArr = [...this.carArray]
-    sortArr = sortArr.sort((a,b) => value === "decending" ? b.price - a.price : a.price - b.price)
-    return sortArr
-  }
-
-
-  // decending(arr) {
-  //   const decendingArr = arr.toSorted((a, b) => a.price - b.price);
-  //   console.log(decendingArr);
-  //   return decendingArr;
-  // }
-
-  // ascending(arr) {
-  //   const ascendingArr = arr.toSorted((a, b) => b.price - a.price);
-  //   console.log(ascendingArr);
-  //   return ascendingArr;
-  // }
 
   arrayCurrentState = () => this.carArray;
 }
