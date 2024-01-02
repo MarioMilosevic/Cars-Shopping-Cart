@@ -21,27 +21,27 @@ const displayCars = (root, arr) => {
    <p class="carText">Name: ${el.name}, ${el.brand}, ${el.manufacturedYear}, ${
       el.doors
     }, price: ${el.price}$.</p> 
-    <div class ="carAvailability">
-    ${el.available === true ? "✅" : "❌"}
-    </div>
+    
    <button data-carId=${el.id} class="carBtn">X</button>
    </div>`;
     appendElement(root, cars);
   });
 
+  // <div class ="carAvailability">
+    // ${el.available === true ? "✅" : "❌"}
+    // </div>
   const carBtn = document.querySelectorAll(".carBtn");
   carBtn.forEach((btn) => {
     btn.addEventListener("click", function () {
+      const currentState = carManager.arrayCurrentState()
       carManager.remove(btn.dataset.carid);
-      console.log('real state',carManager.arrayCurrentState());
+      console.log("real state", carManager.arrayCurrentState());
       root.innerHTML = "";
-      console.log('current copy', currentStateCopy);
-      displayCars(root, currentStateCopy);
+      console.log("current copy", currentStateCopy);
+      displayCars(root, currentState);
     });
   });
 };
-
-
 
 displayCars(carDivs, currentStateCopy);
 
@@ -54,32 +54,31 @@ clearBtn.addEventListener("click", function () {
 });
 
 filterBtn.addEventListener("change", function () {
-  // sortBtn.value = "";
   let selectedOption = this.value;
   if (selectedOption === "available") {
     currentStateCopy = carManager.arrayCurrentState();
-    // carManager.availableCars(currentStateCopy);
     carDivs.innerHTML = "";
     currentStateCopy = carManager.availableCars(currentStateCopy);
     displayCars(carDivs, carManager.availableCars(currentStateCopy));
-    console.log(currentStateCopy);
+    console.log('kopija',currentStateCopy);
+    console.log('stejt' ,carManager.arrayCurrentState());
   } else if (selectedOption === "unavailable") {
     currentStateCopy = carManager.arrayCurrentState();
-    // carManager.unavailableCars(carManager.arrayCurrentState(currentStateCopy));
     currentStateCopy = carManager.unavailableCars(currentStateCopy);
     carDivs.innerHTML = "";
     displayCars(carDivs, carManager.unavailableCars(currentStateCopy));
-    console.log(currentStateCopy);
+    console.log('kopija',currentStateCopy);
+    console.log('stejt' ,carManager.arrayCurrentState());
   } else {
     carDivs.innerHTML = "";
     sortBtn.value = "";
     displayCars(carDivs, carManager.arrayCurrentState());
+    console.log('kopija',currentStateCopy);
+    console.log('stejt' ,carManager.arrayCurrentState());
   }
 });
-console.log(filterBtn.value);
 
 sortBtn.addEventListener("change", function () {
-  // filterBtn.value = "";
   let selectedOption = this.value;
   if (selectedOption === "decending") {
     currentStateCopy = carManager.decending(currentStateCopy);
@@ -91,14 +90,14 @@ sortBtn.addEventListener("change", function () {
     displayCars(carDivs, carManager.ascending(currentStateCopy));
   } else {
     carDivs.innerHTML = "";
-    if(filterBtn.value === 'filterBy'){
-      currentStateCopy = carManager.arrayCurrentState()
+    if (!filterBtn.value) {
+      currentStateCopy = carManager.arrayCurrentState();
       displayCars(carDivs, currentStateCopy);
-    } else if (filterBtn.value === 'available'){
-      currentStateCopy = carManager.availableCars(currentStateCopy)
-      displayCars(carDivs, currentStateCopy)
-    } else if (filterBtn.value === 'unavailable'){
-      currentStateCopy = carManager.unavailableCars(currentStateCopy)
+    } else if (filterBtn.value === "available") {
+      currentStateCopy = carManager.availableCars(currentStateCopy);
+      displayCars(carDivs, currentStateCopy);
+    } else if (filterBtn.value === "unavailable") {
+      currentStateCopy = carManager.unavailableCars(currentStateCopy);
       displayCars(carDivs, currentStateCopy);
     }
   }

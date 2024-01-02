@@ -19,6 +19,7 @@ export class CarManager {
     this.carArray = [];
   }
 
+
   add(car) {
     this.carArray.push(car);
   }
