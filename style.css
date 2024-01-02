@@ -40,6 +40,7 @@ body {
   position: absolute;
   top: -51%;
   left: 29%;
+  color: var(--color-gray-light);
   background-color: var(--color-accent-primary);
   border-radius: 10px;
   padding:5px;

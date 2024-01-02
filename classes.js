@@ -17,18 +17,7 @@ export class Car {
 export class CarManager {
   constructor() {
     this.carArray = [];
-    this.fakeArray = [];
   }
-
-  makeFakeArr() {
-    this.fakeArray = [...this.carArray];
-    return this.fakeArray;
-  }
-
-  setFakeArr(value) {
-    this.fakeArray = value;
-  }
-
 
   add(car) {
     this.carArray.push(car);
