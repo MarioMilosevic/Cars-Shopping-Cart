@@ -8,7 +8,8 @@ export const cars = [
     manufacturedYear: 2019,
     doors: 4,
     price: 22000,
-    available: true,
+    available: "true",
+    
   },
   {
     id: 2,
@@ -17,7 +18,7 @@ export const cars = [
     manufacturedYear: 2020,
     doors: 4,
     price: 25000,
-    available: true,
+    available: "true",
   },
   {
     id: 3,
@@ -26,7 +27,7 @@ export const cars = [
     manufacturedYear: 2018,
     doors: 2,
     price: 35000,
-    available: false,
+    available: "false",
   },
   {
     id: 4,
@@ -35,7 +36,7 @@ export const cars = [
     manufacturedYear: 2021,
     doors: 4,
     price: 45000,
-    available: true,
+    available: "true",
   },
   {
     id: 5,
@@ -44,7 +45,7 @@ export const cars = [
     manufacturedYear: 2017,
     doors: 2,
     price: 32000,
-    available: false,
+    available: "false",
   },
   {
     id: 6,
@@ -53,7 +54,7 @@ export const cars = [
     manufacturedYear: 2022,
     doors: 4,
     price: 42000,
-    available: true,
+    available: "true",
   },
   {
     id: 7,
@@ -62,7 +63,7 @@ export const cars = [
     manufacturedYear: 2020,
     doors: 4,
     price: 50000,
-    available: true,
+    available: "true",
   },
   {
     id: 8,
@@ -71,7 +72,7 @@ export const cars = [
     manufacturedYear: 2019,
     doors: 4,
     price: 38000,
-    available: false,
+    available: "false",
   },
   {
     id: 9,
@@ -80,7 +81,7 @@ export const cars = [
     manufacturedYear: 2021,
     doors: 4,
     price: 28000,
-    available: true,
+    available: "true",
   },
   {
     id: 10,
@@ -89,7 +90,7 @@ export const cars = [
     manufacturedYear: 2022,
     doors: 4,
     price: 32000,
-    available: true,
+    available: "true",
   },
 ];
 

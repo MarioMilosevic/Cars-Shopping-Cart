@@ -1,5 +1,5 @@
 "use strict";
-
+import { cars } from "./constants";
 export class Car {
   constructor(info) {
     this.info = info;
@@ -16,7 +16,9 @@ export class Car {
 
 export class CarManager {
   constructor() {
-    this.carArray = [];
+    this.carArray = [...cars];
+    this.filteredArr = []
+    this.currentFilter = ''
   }
 
 
@@ -24,38 +26,46 @@ export class CarManager {
     this.carArray.push(car);
   }
 
-  remove(carId) {
-    const carIdNumber = Number(carId);
-    const filteredArr = this.carArray.filter((el) => el.id !== carIdNumber);
-    this.carArray = filteredArr;
-    return this.carArray;
+  filter(value) {
+    console.log(this.carArray);
+    let filteredArr = [...this.carArray]
+    filteredArr = filteredArr.filter((el) => el.available === value);
+    console.log(filteredArr);
+    return filteredArr
   }
 
-  availableCars(cars) {
-    const availableCars = cars.filter((car) => car.available === true);
-    return availableCars;
-  }
+  // availableCars(cars) {
+  //   const availableCars = cars.filter((car) => car.available === true);
+  //   return availableCars;
+  // }
 
-  unavailableCars(cars) {
-    const unavailableCars = cars.filter((car) => car.available === false);
-    return unavailableCars;
-  }
+  // unavailableCars(cars) {
+  //   const unavailableCars = cars.filter((car) => car.available === false);
+  //   return unavailableCars;
+  // }
 
   setState(arr) {
     this.carArray = arr;
   }
 
-  decending(arr) {
-    const decendingArr = arr.toSorted((a, b) => a.price - b.price);
-    console.log(decendingArr);
-    return decendingArr;
+  sort(value){
+    let sortArr = [...this.carArray]
+    sortArr = sortArr.sort((a,b) => value === "decending" ? b.price - a.price : a.price - b.price)
+    return sortArr
   }
 
-  ascending(arr) {
-    const ascendingArr = arr.toSorted((a, b) => b.price - a.price);
-    console.log(ascendingArr);
-    return ascendingArr;
-  }
+
+  // decending(arr) {
+  //   const decendingArr = arr.toSorted((a, b) => a.price - b.price);
+  //   console.log(decendingArr);
+  //   return decendingArr;
+  // }
+
+  // ascending(arr) {
+  //   const ascendingArr = arr.toSorted((a, b) => b.price - a.price);
+  //   console.log(ascendingArr);
+  //   return ascendingArr;
+  // }
 
   arrayCurrentState = () => this.carArray;
 }
