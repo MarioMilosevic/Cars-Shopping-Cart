@@ -14,19 +14,29 @@ export const displayCars = (root, arr) => {
     </div>
    <button data-carId=${el.id} class="carBtn">X</button>
    </div>`;
-    root.appendChild(cars);
+   appendElement(root, cars)
+    // root.appendChild(cars);
   });
 
   const carBtn = document.querySelectorAll(".carBtn");
   carBtn.forEach((btn) => {
-    // console.log(btn);
     btn.addEventListener("click", function() {
-      // carManager.remove(btn.getAttribute('dat'));
       carManager.remove(btn.dataset.carid);
-      console.log(carManager.arrayCurrentState());
+      console.log(root);
+      root.innerHTML = ''
+      const currentState = carManager.arrayCurrentState()
+      console.log(currentState)
+      displayCars(root, currentState)
+      console.log(...currentState);
     });
   });
 };
+
+const appendElement = (root, child) => {
+  console.log(child);
+  console.log('---------------------------------------------------------');
+root.append(child)
+}
 
 const removeCar = () => {};
 

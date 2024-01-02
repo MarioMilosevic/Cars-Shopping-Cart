@@ -27,7 +27,6 @@ export class CarManager {
   remove(carId) {
     const carIdNumber = Number(carId);
     const filteredArr = this.carArray.filter((el) => el.id !== carIdNumber);
-    console.log(filteredArr);
     this.carArray = filteredArr;
     return this.carArray;
   }
