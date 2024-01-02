@@ -35,6 +35,8 @@ const displayCars = (root, arr) => {
 displayCars(carDivs, carManager.arrayCurrentState());
 
 clearBtn.addEventListener("click", function () {
+  carManager.resetCustomArr()
+  console.log(carManager.customArr);
   carDivs.innerHTML = "";
   filterBtn.value = "";
   sortBtn.value = "";

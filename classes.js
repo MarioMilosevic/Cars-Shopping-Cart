@@ -31,6 +31,10 @@ export class CarManager {
     return this.customArr;
   }
 
+  resetCustomArr(){
+    this.customArr = [...this.carArray]
+  }
+
   setCustomArr() {
     this.customArr.length === 0
       ? this.customArr.push(...this.carArray)
