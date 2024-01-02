@@ -25,14 +25,15 @@ export class CarManager {
     this.carArray.push(car);
   }
 
-  filter(value) {
+  filter(key, value) {
     this.customArr = [...this.carArray];
-    this.customArr = this.customArr.filter((el) => el.available === value);
+    console.log(key);
+    this.customArr = this.customArr.filter((el) => el[key] === value);
     return this.customArr;
   }
 
-  resetCustomArr(){
-    this.customArr = [...this.carArray]
+  resetCustomArr() {
+    this.customArr = [...this.carArray];
   }
 
   setCustomArr() {
@@ -42,15 +43,16 @@ export class CarManager {
   }
 
   sort(value) {
-    this.setCustomArr();
-    this.customArr = this.customArr.sort((a, b) =>
+    // this.setCustomArr();
+
+    this.customArr.sort((a, b) =>
       value === "decending" ? b.price - a.price : a.price - b.price
     );
     return this.customArr;
   }
 
   remove(carId) {
-    this.setCustomArr();
+    // this.setCustomArr();
     const carIdNumber = Number(carId);
     this.customArr = this.customArr.filter((el) => el.id !== carIdNumber);
   }
@@ -59,7 +61,7 @@ export class CarManager {
     this.carArray = arr;
   }
 
-  arrayCurrentState = () => this.carArray;
+  getCurrentState = () => this.carArray;
 }
 export const carManager = new CarManager();
 

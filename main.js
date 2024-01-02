@@ -25,14 +25,14 @@ const displayCars = (root, arr) => {
   carBtn.forEach((btn) => {
     btn.addEventListener("click", function () {
       carManager.remove(btn.dataset.carid);
-      const currentState = carManager.arrayCurrentState();
+      const currentState = carManager.getCurrentState();
       root.innerHTML = "";
       displayCars(root, carManager.customArr);
     });
   });
 };
 
-displayCars(carDivs, carManager.arrayCurrentState());
+displayCars(carDivs, carManager.getCurrentState());
 
 clearBtn.addEventListener("click", function () {
   carManager.resetCustomArr()
@@ -40,13 +40,16 @@ clearBtn.addEventListener("click", function () {
   carDivs.innerHTML = "";
   filterBtn.value = "";
   sortBtn.value = "";
-  displayCars(carDivs, carManager.arrayCurrentState());
+  displayCars(carDivs, carManager.getCurrentState());
 });
 
 filterBtn.addEventListener("change", function (e) {
   carDivs.innerHTML = "";
-  const [, value] = e.target.value.split("-");
-  displayCars(carDivs, carManager.filter(value));
+  const [key, value] = e.target.value.split("-");
+  // console.log(key);
+  // console.log(value);
+   console.log(carManager.getCurrentState());
+  displayCars(carDivs, carManager.filter(key,value));
 });
 
 sortBtn.addEventListener("change", function (e) {
