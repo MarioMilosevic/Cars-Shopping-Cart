@@ -33,8 +33,8 @@ const displayCars = (root, arr) => {
   const carBtn = document.querySelectorAll(".carBtn");
   carBtn.forEach((btn) => {
     btn.addEventListener("click", function () {
-      const currentState = carManager.arrayCurrentState()
       carManager.remove(btn.dataset.carid);
+      const currentState = carManager.arrayCurrentState()
       console.log("real state", carManager.arrayCurrentState());
       root.innerHTML = "";
       console.log("current copy", currentStateCopy);
