@@ -43,8 +43,7 @@ export class CarManager {
   }
 
   sort(value) {
-    // this.setCustomArr();
-
+    this.setCustomArr();
     this.customArr.sort((a, b) =>
       value === "decending" ? b.price - a.price : a.price - b.price
     );
